@@ -1,0 +1,19 @@
+{
+  "name": "deploy",
+  "version": "1.0.0",
+  "description": "Deployment tool for Websites at schappet.com",
+  "license": "MIT",
+  "author": "Schappet <schappet@revillagesociety.org>",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.5",
+    "toml": "^4.1.1"
+  },
+  "bin": {
+    "deploy": "./bin/deploy.js"
+  }
+}
