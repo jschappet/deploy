@@ -7,8 +7,22 @@ import { buildSite } from "../lib/build.js";
 import { releaseSite } from "../lib/release.js";
 import { renderCaddy } from "../lib/caddy.js";
 import { listSites, getSiteConfigPath } from "../lib/sites.js";
+import { cloneSite } from "../lib/clone.js";
 
 const cmd = process.argv[2];
+
+// ----------------------------
+// CLONE SITE
+// ----------------------------
+if (cmd === "clone") {
+  const repoUrl = process.argv[3];
+  if (!repoUrl) {
+    console.error("Usage: deploy clone <repo-url>");
+    process.exit(1);
+  }
+  cloneSite(repoUrl);
+  process.exit(0);
+}
 
 // ----------------------------
 // LIST SITES (filesystem-driven)
@@ -26,7 +40,7 @@ if (cmd === "list") {
 // DEPLOY SITE
 // ----------------------------
 if (!cmd) {
-  console.log("Usage: deploy <site>|list");
+  console.log("Usage: deploy <site>|list|clone <repo-url>");
   process.exit(0);
 }
 
